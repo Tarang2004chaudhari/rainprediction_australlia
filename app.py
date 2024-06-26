@@ -65,6 +65,7 @@ def predict():
 def serve_css():
     return send_from_directory('.', 'style.css')
 @app.route('/styles.css')
+
 def serve_css():
     return send_from_directory('.', 'styles.css')
 
