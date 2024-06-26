@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Prediction Result</h1>
+        <div class="result">
+            <h2>Prediction: {{ prediction }}</h2>
+        </div>
+        <div id="animation-container"></div>
+        <button onclick="window.location.href='/'">Back</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var prediction = "{{ prediction }}";
+            var container = document.getElementById('animation-container');
+
+            if (prediction.toLowerCase() === 'yes') {
+                container.classList.add('rain-animation');
+                for (var i = 0; i < 100; i++) {
+                    var drop = document.createElement('div');
+                    drop.classList.add('rain-drop');
+                    drop.style.left = Math.random() * window.innerWidth + 'px';
+                    drop.style.animationDuration = 1 + Math.random() * 0.5 + 's';
+                    drop.style.animationDelay = Math.random() * 5 + 's';
+                    container.appendChild(drop);
+                }
+            } else {
+                var hotAir = document.createElement('div');
+                hotAir.classList.add('hot-air');
+                container.appendChild(hotAir);
+                hotAir.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
