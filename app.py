@@ -61,8 +61,8 @@ def predict():
     result_html = render_template_string(open('result.html').read(), prediction=pred, probability=prob)
     return result_html
 
-@app.route('/styles.css')
+@app.route('/style.css')
 def serve_css():
-    return send_from_directory('.', 'styles.css')
+    return send_from_directory('.', 'style.css')
 if __name__ == '__main__':
     app.run(debug=True)
