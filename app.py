@@ -63,7 +63,11 @@ def predict():
 
 @app.route('/styles.css')
 def serve_css():
+<<<<<<< HEAD
     return send_from_directory('.', 'styles.css')
+=======
+    return send_from_directory('result.html', 'styles.css')
+>>>>>>> 3de177f7eaa6634de4e3c6b6faad16596b82bb0d
 
 if __name__ == '__main__':
     app.run(debug=True)
